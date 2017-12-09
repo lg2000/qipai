@@ -113,11 +113,11 @@ void test_one()
 
     if(!HuLib::get_hu_info(cards, NULL, 0, 0))
     {
-        printf("测试失败\n");
+        printf("test fail测试失败\n");
     }
     else
     {
-        printf("测试成功\n");
+        printf("test succeed测试成功\n");
     }
 }
 

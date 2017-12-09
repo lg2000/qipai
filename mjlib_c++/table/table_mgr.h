@@ -7,22 +7,29 @@
 class TableMgr
 {
 public:
-	static void init();
+    static TableMgr* get_instance();
 
-	static void destory();
+    ~TableMgr();
 
-	static void add(int key, int gui_num, bool eye, bool chi);
+	void add(int key, int gui_num, bool eye, bool chi);
 
-	static bool check(int key, int gui_num, bool eye, bool chi);
+	bool check(int key, int gui_num, bool eye, bool chi);
 
-	static bool load();
+	bool load();
 
-	static bool dump_table();
+	bool dump_table();
 
-	static bool dump_feng_table();
+	bool dump_feng_table();
 
-	static Table* m_check_table[MAX_GUI_NUM+1];
-	static Table* m_check_eye_table[MAX_GUI_NUM + 1];
-	static Table* m_check_feng_table[MAX_GUI_NUM + 1];
-	static Table* m_check_feng_eye_table[MAX_GUI_NUM + 1];
+private:
+	void init();
+
+	void destory();
+
+    static TableMgr* s_sharedInstance;
+
+	Table* m_check_table[MAX_GUI_NUM+1];
+	Table* m_check_eye_table[MAX_GUI_NUM + 1];
+	Table* m_check_feng_table[MAX_GUI_NUM + 1];
+	Table* m_check_feng_eye_table[MAX_GUI_NUM + 1];
 };

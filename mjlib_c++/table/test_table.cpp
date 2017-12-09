@@ -58,10 +58,9 @@ void test_hu()
 int GUI_NUM = 4;
 char source[MAX_COUNT * 9 * 34];
 
-void main()
+int main()
 {
-	TableMgr::init();
-	TableMgr::load();
+	TableMgr::get_instance()->load();
 
 	//test_hu();
 	
@@ -99,4 +98,6 @@ void main()
 	cout << "查表法总数:" << 9 * MAX_COUNT / 10000 << "万次，time:" << clock() - dwTimeBegin << "ms" << endl;
 	cout << "Hu: " << hu << endl;
 	cin >> hu;
+
+	return 0;
 }

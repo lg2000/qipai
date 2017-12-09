@@ -1,16 +1,34 @@
 #include <stdio.h>
 #include "table_mgr.h"
 #include "set_table.h"
-#include "hash_table.h"
+// #include "hash_table.h"
 #include "array_table.h"
 #include "binary_array_table.h"
 
 #define TABLECLASS ArrayTable
 
-Table* TableMgr::m_check_table[MAX_GUI_NUM + 1];
-Table* TableMgr::m_check_eye_table[MAX_GUI_NUM + 1];
-Table* TableMgr::m_check_feng_table[MAX_GUI_NUM + 1];
-Table* TableMgr::m_check_feng_eye_table[MAX_GUI_NUM + 1];
+// Table* TableMgr::m_check_table[MAX_GUI_NUM + 1];
+// Table* TableMgr::m_check_eye_table[MAX_GUI_NUM + 1];
+// Table* TableMgr::m_check_feng_table[MAX_GUI_NUM + 1];
+// Table* TableMgr::m_check_feng_eye_table[MAX_GUI_NUM + 1];
+
+TableMgr* TableMgr::s_sharedInstance = NULL;
+
+TableMgr* TableMgr::get_instance()
+{
+    if (!s_sharedInstance)
+    {
+        s_sharedInstance = new (std::nothrow) TableMgr();
+        s_sharedInstance->init();
+    }
+
+    return s_sharedInstance;
+}
+
+TableMgr::~TableMgr()
+{
+    destory();
+}
 
 void TableMgr::init()
 {

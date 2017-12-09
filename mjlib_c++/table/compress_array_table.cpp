@@ -17,7 +17,7 @@ CompressArrayTable::~CompressArrayTable()
 
 int CompressArrayTable::transKey(int key)
 {
-
+    return 0;
 }
 
 bool CompressArrayTable::check(int key)
